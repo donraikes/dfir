@@ -1,0 +1,6 @@
+#!/bin/bash
+dt=`date +%Y-%m-%d--%H:%M:%S`
+echo "$dt Starting $1 imaging" >> timesheet.txt
+sudo dcfldd hash=md5 hashlog=$1.md5 if=/dev/$1 of=$1.dd bs=512 errlog=$1.err
+dt=`date +%Y-%m-%d--%H:%M:%S`
+echo "$dt Finished $1 imaging" >> timesheet.txt

@@ -1,0 +1,10 @@
+#!/bin/bash
+echo -n "fsType: "
+read fstype
+echo -n "image: "
+read image
+dt=`date +%Y-%m-%d--%H:%M:%S`
+echo "$dt starting search for undeleted files" >> timesheet.txt
+sudo fls -i raw -f $fstype -m -r -u $image.dd > $image-undeleted.log
+dt=`date +%Y-%m-%d--%H:%M:%S`
+echo "$dt finished search for undeleted files" >> timesheet.txt

@@ -1,0 +1,6 @@
+#!/bin/bash
+dt=`date +%Y-%m-%d--%H:%M:%S`
+echo "$dt Starting disk imaging" >> timesheet.txt
+sudo dcfldd hash=md5 hashlog=disk.md5 if=/dev/$1 of=disk.dd bs=512 errlog=disk.err
+dt=`date +%Y-%m-%d--%H:%M:%S`
+echo "$dt Finished disk imaging" >> timesheet.txt

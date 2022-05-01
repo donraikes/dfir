@@ -1,0 +1,10 @@
+#!/bin/bash
+echo -n "fstype: "
+read fstype
+echo -n "Image: "
+read image
+dt=`date +%Y-%m-%d--%H:%M:%S`
+echo "$dt starting search for deleted files in image $image.dd" >> timesheet.log
+sudo fls -i raw -f $1 -m -r -d $2.dd > $2-deleted.log
+dt=`date +%Y-%m-%d--%H:%M:%S`
+echo "$dt Finished search for deleted files in image $image.dd" >> timesheet.log
